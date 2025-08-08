@@ -849,6 +849,15 @@ proc updateProfile(
     $rank, email, username
   )
 
+proc genRSSHeaders(c: TForumData): string =
+  # Migration from main.tmpl
+  result = fmt"""
+<link href="{c.req.makeUri("/threadActivity.xml")}" title="Thread activity"
+  type="application/atom+xml" rel="alternate">
+<link href="{c.req.makeUri("/postActivity.xml")}" title="Post activity"
+  type="application/atom+xml" rel="alternate">
+  """ 
+
 proc genThreadsRSS(c: TForumData): string =
   # Migration from main.tmpl
   const
