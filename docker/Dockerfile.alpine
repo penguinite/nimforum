@@ -1,6 +1,6 @@
-FROM nimlang/nim:1.6.4-alpine
+FROM nimlang/nim:2.2.4-alpine-regular
 
-RUN apk --no-cache add libsass-dev sqlite3 libsass
+RUN apk --no-cache add libsass-dev sqlite libsass
 
 WORKDIR /app
 COPY . /app
